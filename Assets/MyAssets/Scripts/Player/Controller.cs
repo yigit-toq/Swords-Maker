@@ -3,6 +3,10 @@ using UnityEngine.InputSystem;
 
 public class Controller : MonoBehaviour
 {
+    [SerializeField] private float forwardSpeed;
+
+    private bool move;
+
     public float speed;
     public float boundary;
     public float smoothTime;
@@ -12,7 +16,7 @@ public class Controller : MonoBehaviour
     private Vector3 velocity = Vector3.zero;
 
     private InputAction moveAction;
-
+    
     private void Awake()
     {
         var playerInput = GetComponent<PlayerInput>();
@@ -29,6 +33,12 @@ public class Controller : MonoBehaviour
         targetPosition = transform.position + new Vector3(movement, 0f, 0f);
 
         targetPosition.x = Mathf.Clamp(targetPosition.x, -boundary, boundary);
+
+        if (move)
+            targetPosition.z += forwardSpeed * Time.deltaTime;
+
+        if (Input.GetKeyDown(KeyCode.Space))
+            move = !move;
     }
 
     private void LateUpdate()
