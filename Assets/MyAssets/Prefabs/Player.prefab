@@ -265,7 +265,7 @@ TrailRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Time: 0.05
-  m_PreviewTimeScale: 0.32
+  m_PreviewTimeScale: 1
   m_Parameters:
     serializedVersion: 3
     widthMultiplier: 1
@@ -347,7 +347,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c04834691019e54e8e6f9f72ff992bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  forwardSpeed: 40
+  forwardSpeed: 20
   speed: 20
   boundary: 1.2
   smoothTime: 0.2
@@ -363,7 +363,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 623a29fcfe7c9f14484ad53900107912, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  joints: []
+  Joints: []
 --- !u!1 &7093741415370763669
 GameObject:
   m_ObjectHideFlags: 0

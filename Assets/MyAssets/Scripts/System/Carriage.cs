@@ -2,7 +2,11 @@ using UnityEngine;
 
 public class Carriage : MonoBehaviour
 {
+    [SerializeField] private GameObject lava;
+
     private JointSystem jointSystem;
+
+    private bool isLava;
 
     private void Awake()
     {
@@ -18,8 +22,21 @@ public class Carriage : MonoBehaviour
         }
         if (collision.collider.CompareTag("Trap"))
         {
-            jointSystem.RemoveCarriage();
             Destroy(gameObject);
+            var joint = gameObject.GetComponent<ConfigurableJoint>();
+            jointSystem.RemoveCarriage(gameObject, jointSystem.Joints.IndexOf(joint));
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.GetComponent<Collider>().CompareTag("Lava"))
+        {
+            lava.SetActive(true);
+            isLava = true;
+        }
+        if (other.GetComponent<Collider>().CompareTag("Water"))
+        {
         }
     }
 }

@@ -49,16 +49,11 @@ public class JointSystem : MonoBehaviour
         }
     }
 
-    public void RemoveCarriage()
+    public void RemoveCarriage(GameObject @object, int index)
     {
-        if (Joints.Count == 0) return;
-
-        var lastJoint = Joints[^1];
-        Joints.Remove(lastJoint);
-
-        if (Joints.Count == 0) return;
-
-        Joints[^1].connectedBody = null;
-        Joints[^1].zMotion = ConfigurableJointMotion.Free;
+        if (@object.TryGetComponent<ConfigurableJoint>(out var joint))
+        {
+            Joints.RemoveAt(index);
+        }
     }
 }

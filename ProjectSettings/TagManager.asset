@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Node
   - Trap
+  - Lava
+  - Water
   layers:
   - Default
   - TransparentFX
