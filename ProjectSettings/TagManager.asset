@@ -8,11 +8,13 @@ TagManager:
   - Trap
   - Lava
   - Water
+  - Press
+  - Emery
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Finish
   - Water
   - UI
   - 
